@@ -1,28 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <input type="number" v-model="num1">
+    <span>+</span>
+    <input type="number" v-model="num2">
+    <span>= {{sum}}</span>
+    <hr>
+    <a :href="link">google</a>
+    <hr>
+
+    {{multiply}}
+
+    <p v-html="link"></p>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  data() {
+    return {
+      num1:0,
+      num2:0,
+      link:'<a href:"https://google.com">google</a>'
+    }
+  },
+  computed: {
+    sum() {
+      return parseInt(this.num1)+parseInt(this.num2);
+    },
+    multiply()
+    {
+      return parseInt(this.num1)* parseInt(this.num2);
+    }
+  },
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
