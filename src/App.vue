@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    
-    
+    <TodoItem/>
   </div>
 </template>
 
 <script>
 
-import TodoItem from './components/todoItem';
+import TodoItem from './components/todoItem.vue';
 
 export default {
   name: 'App',
+  components: {
+    TodoItem,
+  },
   data() {
     return {
       num1:0,
