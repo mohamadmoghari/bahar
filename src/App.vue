@@ -1,28 +1,23 @@
 <template>
   <div id="app">
-    <input type="number" v-model="num1">
-    <span>+</span>
-    <input type="number" v-model="num2">
-    <span>= {{sum}}</span>
-    <hr>
-    <a :href="link">google</a>
-    <hr>
-
-    {{multiply}}
-
-    <p v-html="link"></p>
-
+    
+    
   </div>
 </template>
 
 <script>
+
+import TodoItem from './components/todoItem';
+
 export default {
   name: 'App',
   data() {
     return {
       num1:0,
       num2:0,
-      link:'<a href:"https://google.com">google</a>'
+      link:"https://google.com",
+      link2:'<a href="https://google.com">google</a>',
+      counter:0,
     }
   },
   computed: {
@@ -34,5 +29,20 @@ export default {
       return parseInt(this.num1)* parseInt(this.num2);
     }
   },
+  methods: {
+    showAlert(message) {
+      alert(message);
+    },
+    divClick(){
+        return this.counter++;
+    }
+  },
 }
 </script>
+<style scoped>
+#div1{
+width:50px;
+height: 50px;
+background-color: yellow;
+}
+</style>
