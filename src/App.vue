@@ -1,6 +1,12 @@
 <template>
+
   <div id="app">
-    <TodoItem/>
+    <div id="header">
+      <button @click="addItem">Add New Item</button>
+    </div>
+    <div v-for="item in todoItems" :key="item.id">
+    <todoItem :key="item.id" :id="item.id" :message="item.message"/>
+    </div>
   </div>
 </template>
 
@@ -11,32 +17,24 @@ import TodoItem from './components/todoItem.vue';
 export default {
   name: 'App',
   components: {
-    TodoItem,
+    todoItem:TodoItem,
   },
   data() {
     return {
-      num1:0,
-      num2:0,
-      link:"https://google.com",
-      link2:'<a href="https://google.com">google</a>',
-      counter:0,
-    }
-  },
-  computed: {
-    sum() {
-      return parseInt(this.num1)+parseInt(this.num2);
-    },
-    multiply()
-    {
-      return parseInt(this.num1)* parseInt(this.num2);
+      todoItems:[]
     }
   },
   methods: {
-    showAlert(message) {
-      alert(message);
+    addItem() {
+      this.todoItems.push({
+        id:this.todoItems.length+1,
+        message:''
+      });
     },
-    divClick(){
-        return this.counter++;
+    saveData({id, message})
+    {
+      console.log(message+'   '+ id);
+    this.todoItems[id].message=message;
     }
   },
 }
