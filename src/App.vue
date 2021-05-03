@@ -5,7 +5,7 @@
       <button @click="addItem">Add New Item</button>
     </div>
     <div v-for="item in todoItems" :key="item.id">
-    <todoItem :key="item.id" :id="item.id" :message="item.message"/>
+    <todoItem  v-on:cildToParent="saveData" :key="item.id" :id="item.id" :message="item.message"/>
     </div>
   </div>
 </template>
@@ -31,10 +31,9 @@ export default {
         message:''
       });
     },
-    saveData({id, message})
+    saveData(id, message)
     {
-      console.log(message+'   '+ id);
-    this.todoItems[id].message=message;
+     this.todoItems[id-1].message=message
     }
   },
 }
