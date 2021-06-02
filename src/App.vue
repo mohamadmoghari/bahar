@@ -70,7 +70,7 @@ export default {
     deleteData(id) {
       let deletedIndex = this.getArrayIndex(id);
       this.setConsole(deletedIndex);
-      if (deletedIndex >= 0) this.todoItems.splice(deletedIndex);
+      if (deletedIndex >= 0) this.todoItems.splice(deletedIndex,1);
     },
     markItem(id, check) {
       let index = this.getArrayIndex(id);
